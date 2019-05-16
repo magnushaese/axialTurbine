@@ -1,0 +1,55 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     4.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  | For copyright notice see file Copyright         |
+\*---------------------------------------------------------------------------*/
+Build    : 4.0-268bb07d15d8
+Exec     : setsToZones -noFlipMap
+Date     : May 16 2019
+Time     : 10:07:13
+Host     : magnus-ThinkPad-X240
+PID      : 8430
+CtrlDict : "/home/magnus/foam/magnus-4.0/MA/axialTurbine/system/controlDict"
+Case     : /home/magnus/foam/magnus-4.0/MA/axialTurbine
+nProcs   : 1
+SigFpe   : Enabling floating point exception trapping (FOAM_SIGFPE).
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Searched : "constant/polyMesh/sets"
+Found    : 
+11
+(
+rotor
+GVCYCLIC1Zone
+RUINLETZone
+GVOUTLETZone
+RUCYCLIC1Zone
+DTCYCLIC1Zone
+DTCYCLIC2Zone
+RUOUTLETZone
+GVCYCLIC2Zone
+RUCYCLIC2Zone
+DTINLETZone
+)
+
+
+Adding set GVCYCLIC2Zone as a faceZone.
+Adding set RUCYCLIC1Zone as a faceZone.
+Adding set RUCYCLIC2Zone as a faceZone.
+Adding set DTCYCLIC2Zone as a faceZone.
+Adding set DTCYCLIC1Zone as a faceZone.
+Adding set RUINLETZone as a faceZone.
+Adding set RUOUTLETZone as a faceZone.
+Adding set GVOUTLETZone as a faceZone.
+Adding set DTINLETZone as a faceZone.
+Adding set GVCYCLIC1Zone as a faceZone.
+Overwriting contents of existing cellZone 0 with that of set rotor.
+Writing mesh.
+
+End

@@ -1,0 +1,195 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     4.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+20
+(
+    GVINLET
+    {
+        type            patch;
+        nFaces          100;
+        startFace       11740;
+    }
+    GVOUTLET
+    {
+        type            overlapGgi;
+        nFaces          100;
+        startFace       11840;
+        rotationAxis    (0 0 1);
+        nCopies         5;
+        shadowPatch     RUINLET;
+        zone            GVOUTLETZone;
+    }
+    GVCYCLIC1
+    {
+        type            cyclicGgi;
+        nFaces          120;
+        startFace       11940;
+        shadowPatch     GVCYCLIC2;
+        zone            GVCYCLIC1Zone;
+        bridgeOverlap   false;
+        rotationAxis    (0 0 1);
+        rotationAngle   72;
+        separationOffset (0 0 0);
+    }
+    GVCYCLIC2
+    {
+        type            cyclicGgi;
+        nFaces          120;
+        startFace       12060;
+        shadowPatch     GVCYCLIC1;
+        zone            GVCYCLIC2Zone;
+        bridgeOverlap   false;
+        rotationAxis    (0 0 1);
+        rotationAngle   -72;
+        separationOffset (0 0 0);
+    }
+    GVBLADE
+    {
+        type            wall;
+        nFaces          200;
+        startFace       12180;
+    }
+    GVHUB
+    {
+        type            wall;
+        nFaces          220;
+        startFace       12380;
+    }
+    GVSHROUD
+    {
+        type            wall;
+        nFaces          220;
+        startFace       12600;
+    }
+    RUINLET
+    {
+        type            overlapGgi;
+        nFaces          100;
+        startFace       12820;
+        rotationAxis    (0 0 1);
+        nCopies         5;
+        shadowPatch     GVOUTLET;
+        zone            RUINLETZone;
+    }
+    RUOUTLET
+    {
+        type            overlapGgi;
+        nFaces          100;
+        startFace       12920;
+        rotationAxis    (0 0 1);
+        nCopies         5;
+        shadowPatch     DTINLET;
+        zone            RUOUTLETZone;
+    }
+    RUCYCLIC1
+    {
+        type            cyclicGgi;
+        nFaces          40;
+        startFace       13020;
+        shadowPatch     RUCYCLIC2;
+        zone            RUCYCLIC1Zone;
+        bridgeOverlap   false;
+        rotationAxis    (0 0 1);
+        rotationAngle   72;
+        separationOffset (0 0 0);
+    }
+    RUCYCLIC2
+    {
+        type            cyclicGgi;
+        nFaces          40;
+        startFace       13060;
+        shadowPatch     RUCYCLIC1;
+        zone            RUCYCLIC2Zone;
+        bridgeOverlap   false;
+        rotationAxis    (0 0 1);
+        rotationAngle   -72;
+        separationOffset (0 0 0);
+    }
+    RUBLADE
+    {
+        type            wall;
+        nFaces          200;
+        startFace       13100;
+    }
+    RUHUB
+    {
+        type            wall;
+        nFaces          140;
+        startFace       13300;
+    }
+    RUSHROUD
+    {
+        type            wall;
+        nFaces          140;
+        startFace       13440;
+    }
+    DTINLET
+    {
+        type            overlapGgi;
+        nFaces          100;
+        startFace       13580;
+        rotationAxis    (0 0 1);
+        nCopies         5;
+        shadowPatch     RUOUTLET;
+        zone            DTINLETZone;
+    }
+    DTOUTLET
+    {
+        type            patch;
+        nFaces          100;
+        startFace       13680;
+    }
+    DTCYCLIC1
+    {
+        type            cyclicGgi;
+        nFaces          70;
+        startFace       13780;
+        shadowPatch     DTCYCLIC2;
+        zone            DTCYCLIC1Zone;
+        bridgeOverlap   false;
+        rotationAxis    (0 0 1);
+        rotationAngle   72;
+        separationOffset (0 0 0);
+    }
+    DTCYCLIC2
+    {
+        type            cyclicGgi;
+        nFaces          70;
+        startFace       13850;
+        shadowPatch     DTCYCLIC1;
+        zone            DTCYCLIC2Zone;
+        bridgeOverlap   false;
+        rotationAxis    (0 0 1);
+        rotationAngle   -72;
+        separationOffset (0 0 0);
+    }
+    DTHUB
+    {
+        type            wall;
+        nFaces          70;
+        startFace       13920;
+    }
+    DTSHROUD
+    {
+        type            wall;
+        nFaces          70;
+        startFace       13990;
+    }
+)
+
+
+// ************************************************************************* //

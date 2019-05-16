@@ -1,0 +1,139 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     4.0                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      omega;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 -1 0 0 0 0];
+
+internalField   uniform 0.44;
+
+boundaryField
+{
+    GVINLET
+    {
+        type            fixedValue;
+        value           uniform 0.44;
+    }
+    GVOUTLET
+    {
+        type            overlapGgi;
+    }
+    GVCYCLIC1
+    {
+        type            cyclicGgi;
+    }
+    GVCYCLIC2
+    {
+        type            cyclicGgi;
+    }
+    GVBLADE
+    {
+        type            omegaWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0.44;
+    }
+    GVHUB
+    {
+        type            omegaWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0.44;
+    }
+    GVSHROUD
+    {
+        type            omegaWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0.44;
+    }
+    RUINLET
+    {
+        type            overlapGgi;
+    }
+    RUOUTLET
+    {
+        type            overlapGgi;
+    }
+    RUCYCLIC1
+    {
+        type            cyclicGgi;
+    }
+    RUCYCLIC2
+    {
+        type            cyclicGgi;
+    }
+    RUBLADE
+    {
+        type            omegaWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0.44;
+    }
+    RUHUB
+    {
+        type            omegaWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0.44;
+    }
+    RUSHROUD
+    {
+        type            omegaWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0.44;
+    }
+    DTINLET
+    {
+        type            overlapGgi;
+    }
+    DTOUTLET
+    {
+        type            zeroGradient;
+    }
+    DTCYCLIC1
+    {
+        type            cyclicGgi;
+    }
+    DTCYCLIC2
+    {
+        type            cyclicGgi;
+    }
+    DTHUB
+    {
+        type            omegaWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0.44;
+    }
+    DTSHROUD
+    {
+        type            omegaWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           uniform 0.44;
+    }
+}
+
+
+// ************************************************************************* //
